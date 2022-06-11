@@ -1,14 +1,14 @@
 {
   "chromium": [
     {
-      "app": "/Applications/Google Chrome.app",
+      "app": "Google Chrome",
       "name": "CHROME",
       "title": "Google Chrome",
       "path": "/Library/Application Support/Google/Chrome",
       "icon": "chrome.icns"
     },
     {
-      "app": "/Applications/Google Chrome Canary.app",
+      "app": "Google Chrome Canary",
       "name": "CHROME_CANARY",
       "title": "Google Chrome Canary",
       "path": "/Library/Application Support/Google/Chrome Canary",
@@ -22,21 +22,21 @@
       "icon": "chromium.icns"
     },
     {
-      "app": "/Applications/Brave Browser.app",
+      "app": "Brave Browser",
       "name": "BRAVE",
       "title": "Brave",
       "path": "/Library/Application Support/BraveSoftware/Brave-Browser",
       "icon": "brave.icns"
     },
     {
-      "app": "/Applications/Microsoft Edge.app",
+      "app": "Microsoft Edge",
       "name": "EDGE",
       "title": "Microsoft Edge",
       "path": "/Library/Application Support/Microsoft Edge",
       "icon": "edge.icns"
     },
     {
-      "app": "/Applications/Microsoft Edge Canary.app",
+      "app": "Microsoft Edge Canary",
       "name": "EDGE_CANARY",
       "title": "Microsoft Edge Canary",
       "path": "/Library/Application Support/Microsoft Edge Canary",

@@ -1,7 +1,8 @@
-import { ActionPanel, Detail, List, Icon, Action } from "@raycast/api";
+import { ActionPanel, List, Icon, Action } from "@raycast/api";
 
 import { getFirefoxProfiles } from "./lib/firefox";
 import { getChromiumProfiles } from "./lib/chromium";
+import { launchChromium } from "./lib/browsers";
 
 export default function Command() {
   const chromiumProfiles = getChromiumProfiles();
@@ -21,7 +22,12 @@ export default function Command() {
               accessories={[{ text: "Launch this profile", icon: Icon.Globe }]}
               actions={
                 <ActionPanel>
-                  <Action.Push title="Show Details" target={<Detail markdown="# Hey! 👋" />} />
+                  <Action
+                    title="Open Browser"
+                    onAction={() => {
+                      launchChromium(profile.app, profile.path);
+                    }}
+                  />
                 </ActionPanel>
               }
             />

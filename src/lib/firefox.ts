@@ -10,9 +10,10 @@ type FirefoxProfiles = {
 };
 
 type FirefoxProfile = {
+  browser: string;
+  app: string;
   name: string;
   icon: string;
-  browser: string;
 };
 
 export const getFirefoxProfiles = () => {
@@ -37,9 +38,10 @@ export const getFirefoxProfiles = () => {
       }
 
       browserProfiles.push({
+        browser: browser.title,
+        app: browser.app,
         name: profile.Name,
         icon: browser.icon,
-        browser: browser.title,
       });
     });
 

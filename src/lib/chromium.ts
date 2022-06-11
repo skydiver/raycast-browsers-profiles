@@ -9,9 +9,11 @@ type ChromiumProfiles = {
 };
 
 type ChromiumProfile = {
+  browser: string;
+  app: string;
+  path: string;
   name: string;
   icon: string;
-  browser: string;
 };
 
 export const getChromiumProfiles = () => {
@@ -40,9 +42,11 @@ export const getChromiumProfiles = () => {
       const profile = JSON.parse(file);
 
       browserProfiles.push({
+        browser: browser.title,
+        app: browser.app,
+        path: directory,
         name: profile.profile.name,
         icon: browser.icon,
-        browser: browser.title,
       });
     });
 
