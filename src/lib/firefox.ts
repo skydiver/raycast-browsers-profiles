@@ -10,8 +10,10 @@ type FirefoxProfiles = {
 };
 
 type FirefoxProfile = {
+  type: string;
   browser: string;
   app: string;
+  path: string;
   name: string;
   icon: string;
 };
@@ -38,8 +40,10 @@ export const getFirefoxProfiles = () => {
       }
 
       browserProfiles.push({
+        type: browser.type,
         browser: browser.title,
         app: browser.app,
+        path: profile.Name,
         name: profile.Name,
         icon: browser.icon,
       });

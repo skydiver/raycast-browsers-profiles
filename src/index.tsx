@@ -2,7 +2,7 @@ import { ActionPanel, List, Icon, Action } from "@raycast/api";
 
 import { getFirefoxProfiles } from "./lib/firefox";
 import { getChromiumProfiles } from "./lib/chromium";
-import { launchChromium } from "./lib/browsers";
+import { launchBrowser } from "./lib/browsers";
 
 export default function Command() {
   const chromiumProfiles = getChromiumProfiles();
@@ -25,7 +25,7 @@ export default function Command() {
                   <Action
                     title="Open Browser"
                     onAction={() => {
-                      launchChromium(profile.app, profile.path);
+                      launchBrowser(profile.type, profile.app, profile.path);
                     }}
                   />
                 </ActionPanel>

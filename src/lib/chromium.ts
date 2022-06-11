@@ -9,6 +9,7 @@ type ChromiumProfiles = {
 };
 
 type ChromiumProfile = {
+  type: string;
   browser: string;
   app: string;
   path: string;
@@ -42,6 +43,7 @@ export const getChromiumProfiles = () => {
       const profile = JSON.parse(file);
 
       browserProfiles.push({
+        type: browser.type,
         browser: browser.title,
         app: browser.app,
         path: directory,
