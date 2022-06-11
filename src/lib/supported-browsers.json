@@ -3,14 +3,14 @@
     {
       "app": "/Applications/Google Chrome.app",
       "name": "CHROME",
-      "title": "Chrome",
+      "title": "Google Chrome",
       "path": "/Library/Application Support/Google/Chrome",
       "icon": "chrome.icns"
     },
     {
       "app": "/Applications/Google Chrome Canary.app",
       "name": "CHROME_CANARY",
-      "title": "Chrome Canary",
+      "title": "Google Chrome Canary",
       "path": "/Library/Application Support/Google/Chrome Canary",
       "icon": "canary.icns"
     },
@@ -31,14 +31,14 @@
     {
       "app": "/Applications/Microsoft Edge.app",
       "name": "EDGE",
-      "title": "Edge",
+      "title": "Microsoft Edge",
       "path": "/Library/Application Support/Microsoft Edge",
       "icon": "edge.icns"
     },
     {
       "app": "/Applications/Microsoft Edge Canary.app",
       "name": "EDGE_CANARY",
-      "title": "Edge Canary",
+      "title": "Microsoft Edge Canary",
       "path": "/Library/Application Support/Microsoft Edge Canary",
       "icon": "edge.icns"
     }

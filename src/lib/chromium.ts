@@ -3,6 +3,11 @@ import os from "os";
 
 import browsers from "./supported-browsers.json";
 
+type ChromiumProfiles = {
+  name: string;
+  profiles: ChromiumProfile[];
+};
+
 type ChromiumProfile = {
   name: string;
   icon: string;
@@ -10,7 +15,7 @@ type ChromiumProfile = {
 };
 
 export const getChromiumProfiles = () => {
-  const profiles: ChromiumProfile[] = [];
+  const profiles: ChromiumProfiles[] = [];
 
   browsers.chromium.forEach((browser) => {
     const path = `${os.homedir()}${browser.path}`;
@@ -22,6 +27,8 @@ export const getChromiumProfiles = () => {
 
     const directories = fs.readdirSync(path);
 
+    const browserProfiles: ChromiumProfile[] = [];
+
     directories.forEach((directory) => {
       const preferences = `${path}/${directory}/Preferences`;
 
@@ -32,11 +39,16 @@ export const getChromiumProfiles = () => {
       const file = fs.readFileSync(preferences, "utf-8");
       const profile = JSON.parse(file);
 
-      profiles.push({
+      browserProfiles.push({
         name: profile.profile.name,
         icon: browser.icon,
-        browser: browser.name,
+        browser: browser.title,
       });
+    });
+
+    profiles.push({
+      name: browser.title,
+      profiles: browserProfiles,
     });
   });
 

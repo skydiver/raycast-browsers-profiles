@@ -4,6 +4,11 @@ import ini from "ini";
 
 import browsers from "./supported-browsers.json";
 
+type FirefoxProfiles = {
+  name: string;
+  profiles: FirefoxProfile[];
+};
+
 type FirefoxProfile = {
   name: string;
   icon: string;
@@ -11,7 +16,7 @@ type FirefoxProfile = {
 };
 
 export const getFirefoxProfiles = () => {
-  const profiles: FirefoxProfile[] = [];
+  const profiles: FirefoxProfiles[] = [];
 
   browsers.firefox.forEach((browser) => {
     const path = `${os.homedir()}${browser.path}`;
@@ -24,16 +29,23 @@ export const getFirefoxProfiles = () => {
     const file = fs.readFileSync(`${path}/profiles.ini`, "utf-8");
     const config = ini.parse(file);
 
+    const browserProfiles: FirefoxProfile[] = [];
+
     Object.values(config).forEach((profile) => {
       if (!profile.Name) {
         return null;
       }
 
-      profiles.push({
+      browserProfiles.push({
         name: profile.Name,
         icon: browser.icon,
-        browser: browser.name,
+        browser: browser.title,
       });
+    });
+
+    profiles.push({
+      name: browser.title,
+      profiles: browserProfiles,
     });
   });
 
