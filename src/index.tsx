@@ -1,13 +1,17 @@
 import { ActionPanel, Detail, List, Action } from "@raycast/api";
 
 import { getFirefoxProfiles } from "./lib/firefox";
+import { getChromiumProfiles } from "./lib/chromium";
 
 export default function Command() {
+  const chromiumProfiles = getChromiumProfiles();
   const firefoxProfiles = getFirefoxProfiles();
+
+  const profiles = [...chromiumProfiles, ...firefoxProfiles];
 
   return (
     <List>
-      {firefoxProfiles.map((profile, index) => (
+      {profiles.map((profile, index) => (
         <List.Item
           key={`firefox-profile-${index}`}
           icon={{ source: `icons/${profile.icon}` }}

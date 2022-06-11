@@ -7,6 +7,7 @@ import browsers from "./supported-browsers.json";
 type FirefoxProfile = {
   name: string;
   icon: string;
+  browser: string;
 };
 
 export const getFirefoxProfiles = () => {
@@ -31,6 +32,7 @@ export const getFirefoxProfiles = () => {
       profiles.push({
         name: profile.Name,
         icon: browser.icon,
+        browser: browser.name,
       });
     });
   });
