@@ -1,17 +1,24 @@
 import { ActionPanel, Detail, List, Action } from "@raycast/api";
 
+import { getFirefoxProfiles } from "./lib/firefox";
+
 export default function Command() {
+  const firefoxProfiles = getFirefoxProfiles();
+
   return (
     <List>
-      <List.Item
-        icon="list-icon.png"
-        title="Greeting"
-        actions={
-          <ActionPanel>
-            <Action.Push title="Show Details" target={<Detail markdown="# Hey! 👋" />} />
-          </ActionPanel>
-        }
-      />
+      {firefoxProfiles.map((profile, index) => (
+        <List.Item
+          key={`firefox-profile-${index}`}
+          icon={{ source: `icons/${profile.icon}` }}
+          title={profile.name}
+          actions={
+            <ActionPanel>
+              <Action.Push title="Show Details" target={<Detail markdown="# Hey! 👋" />} />
+            </ActionPanel>
+          }
+        />
+      ))}
     </List>
   );
 }
